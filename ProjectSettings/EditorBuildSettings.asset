@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/_Scenes/MainMenu.unity
     guid: 1287a4a130dad1640bd5db8e40347cc5
   - enabled: 1
-    path: Assets/Scenes/LaptopMenu.unity
+    path: Assets/_Scenes/LaptopMenu.unity
     guid: 5d641be93ca049447afddc0428dd2c66
   - enabled: 1
-    path: Assets/Scenes/Nature.unity
+    path: Assets/_Scenes/Nature.unity
     guid: 43d37651521515b41bb2e12cd46ed3f6
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
