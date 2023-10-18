@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomSpawn : MonoBehaviour
 {
     [HideInInspector] public List<GameObject> cars;
+    [HideInInspector] public GameObject droppedCar;
     public List<GameObject> sovietCars;
     public List<GameObject> americaCars;
     public List<GameObject> dubaiCars;
@@ -46,10 +47,11 @@ public class RandomSpawn : MonoBehaviour
                 break;
         }
         int car = UnityEngine.Random.Range(0, cars.Count);
-        GameObject go = Instantiate(cars[car], spawnPoints[RunOpen.containerToOpen].transform.position, Quaternion.identity);
-        Destroy(go.GetComponent(typeof(Rigidbody)));
-        Destroy(go.GetComponent(typeof(BoxCollider)));
-        Destroy(go.GetComponent(typeof(MeshCollider)));
-        Destroy(go.GetComponent(typeof(SphereCollider)));
+        droppedCar = Instantiate(cars[car], spawnPoints[RunOpen.containerToOpen].transform.position, Quaternion.identity);
+        Destroy(droppedCar.GetComponent(typeof(Rigidbody)));
+        Destroy(droppedCar.GetComponent(typeof(BoxCollider)));
+        Destroy(droppedCar.GetComponent(typeof(MeshCollider)));
+        Destroy(droppedCar.GetComponent(typeof(SphereCollider)));
+        
     }
 }

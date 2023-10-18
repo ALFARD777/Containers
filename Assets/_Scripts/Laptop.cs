@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Laptop : MonoBehaviour
 {
-    public string currentScene = "Nature";
+    public static string currentScene = "Nature";
     public Text clockText;
     public void StartScene()
     {
@@ -16,5 +16,9 @@ public class Laptop : MonoBehaviour
     private void Update()
     {
         clockText.text = DateTime.Now.ToString("HH:mm\ndd.MM.yyyy");
+    }
+    public void ChangeCurrentScene(string name)
+    {
+        currentScene = name;
     }
 }

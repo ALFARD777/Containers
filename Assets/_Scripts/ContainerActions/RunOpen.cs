@@ -11,11 +11,14 @@ public class RunOpen : MonoBehaviour
     public GameObject timerGroup;
     public Text timerText;
     public RandomSpawn RandomSpawn;
+    public GameObject colliders;
+    public Sell Sell;
     [HideInInspector] public int containerIntCost;
     [HideInInspector] public int containerToOpen;
+    [HideInInspector] public static List<List<GameObject>> contList;
     public void RunOpenContainer()
     {
-        List<List<GameObject>> contList = new List<List<GameObject>>
+        contList = new List<List<GameObject>>
         {
             Init.firstContainersList,
             Init.secondContainersList,
@@ -36,7 +39,12 @@ public class RunOpen : MonoBehaviour
     }
     private IEnumerator TimerAndOpen(List<List<GameObject>> contList)
     {
+        foreach (var cont in contList)
+        {
+            cont[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
         timerGroup.SetActive(true);
+        colliders.SetActive(true);
         RandomSpawn.SpawnCars();
         for (int i = 5; i > 0; i--)
         {
@@ -52,7 +60,9 @@ public class RunOpen : MonoBehaviour
                 GameObject doors = contList[containerToOpen][i].transform.Find("Doors").gameObject;
                 doors.GetComponent<Animator>().enabled = true;
                 doors.GetComponent<Animator>().SetTrigger("Open");
+                break;
             }
         }
+        Sell.StartSell();
     }
 }

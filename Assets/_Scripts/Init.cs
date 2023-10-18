@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Init : MonoBehaviour
 {
     [HideInInspector] public int containerToOpen;
-    [HideInInspector] private bool isBalanceWasSet = false;
-    public long balance = 0;
+    [HideInInspector] public static bool isBalanceWasSet = false;
+    public static long balance = 0;
+    public static long gems = 0;
     public Text balanceText;
+    public Text gemsText;
     public List<GameObject> firstContainersList;
     public List<GameObject> secondContainersList;
     public List<GameObject> thirdContainersList;
@@ -36,7 +39,8 @@ public class Init : MonoBehaviour
     }
     void Update()
     {
-        balanceText.text = balance + "$";
+        balanceText.text = balance.ToString("N0", CultureInfo.InvariantCulture).Replace(",", ".") + "$";
+        gemsText.text = gems.ToString();
     }
     public void AddBalance(int count)
     {
@@ -48,8 +52,19 @@ public class Init : MonoBehaviour
     }
     public bool CheckBalance(int count)
     {
-        if (count > balance) return false;
-        else return true;
+        return count <= balance;
+    }
+    public void AddGems(int count)
+    {
+        gems += count;
+    }
+    public void RemoveGems(int count)
+    {
+        gems -= count;
+    }
+    public bool CheckGems(int count)
+    {
+        return count <= gems;
     }
     private void AddTimeBalance()
     {
@@ -63,7 +78,7 @@ public class Init : MonoBehaviour
         }
         firstContainerNumber = Random.Range(0, firstContainersList.Count);
         firstContainersList[firstContainerNumber].SetActive(true);
-        //firstContainersList[0].SetActive(true);
+        firstContainersList[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
     public void RandomSecond()
     {
@@ -73,6 +88,7 @@ public class Init : MonoBehaviour
         }
         secondContainerNumber = Random.Range(0, secondContainersList.Count);
         secondContainersList[secondContainerNumber].SetActive(true);
+        secondContainersList[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
     public void RandomThird()
     {
@@ -82,6 +98,7 @@ public class Init : MonoBehaviour
         }
         thirdContainerNumber = Random.Range(0, thirdContainersList.Count);
         thirdContainersList[thirdContainerNumber].SetActive(true);
+        thirdContainersList[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
     public void RandomFourth()
     {
@@ -91,6 +108,7 @@ public class Init : MonoBehaviour
         }
         fourthContainerNumber = Random.Range(0, fourthContainersList.Count);
         fourthContainersList[fourthContainerNumber].SetActive(true);
+        fourthContainersList[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
     public void RandomFifth()
     {
@@ -100,13 +118,6 @@ public class Init : MonoBehaviour
         }
         fifthContainerNumber = Random.Range(0, fifthContainersList.Count);
         fifthContainersList[fifthContainerNumber].SetActive(true);
-    }
-    public void SetTimeScaleTo1()
-    {
-        Time.timeScale = 1.0f;
-    }
-    public void SetTimeScaleTo0()
-    {
-        Time.timeScale = 0.0f;
+        fifthContainersList[0].transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 }
