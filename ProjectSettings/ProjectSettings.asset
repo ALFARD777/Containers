@@ -136,7 +136,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f61d651add4663b48b9869ac91dd75ec, type: 2}
+  - {fileID: 11400000, guid: 5e4d79e924cefe54a8f992b91f092ad5, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -274,7 +277,7 @@ PlayerSettings:
   androidGamepadSupportLevel: 0
   chromeosInputEmulation: 1
   AndroidMinifyRelease: 0
-  AndroidMinifyDebug: 0
+  AndroidMinifyDebug: 1
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons: []

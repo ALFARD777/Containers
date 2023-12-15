@@ -47,6 +47,8 @@ public class RandomSpawn : MonoBehaviour
                 break;
         }
         int car = UnityEngine.Random.Range(0, cars.Count);
+        if (cars[car].name == "Trash") Init.trashes++;
+        Init.containerOpened++;
         droppedCar = Instantiate(cars[car], spawnPoints[RunOpen.containerToOpen].transform.position, Quaternion.identity);
         Destroy(droppedCar.GetComponent(typeof(Rigidbody)));
         Destroy(droppedCar.GetComponent(typeof(BoxCollider)));

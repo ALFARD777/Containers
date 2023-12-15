@@ -10,6 +10,9 @@ public class Init : MonoBehaviour
     [HideInInspector] public static bool isBalanceWasSet = false;
     public static long balance = 0;
     public static long gems = 0;
+    public static int playTime = 0;
+    public static int trashes = 0;
+    public static int containerOpened = 0;
     public Text balanceText;
     public Text gemsText;
     public List<GameObject> firstContainersList;
@@ -17,7 +20,7 @@ public class Init : MonoBehaviour
     public List<GameObject> thirdContainersList;
     public List<GameObject> fourthContainersList;
     public List<GameObject> fifthContainersList;
-    public int firstContainerNumber;
+    [HideInInspector] public int firstContainerNumber;
     [HideInInspector] public int secondContainerNumber;
     [HideInInspector] public int thirdContainerNumber;
     [HideInInspector] public int fourthContainerNumber;
@@ -69,6 +72,7 @@ public class Init : MonoBehaviour
     private void AddTimeBalance()
     {
         balance += 200000;
+        playTime += 2;
     }
     public void RandomFirst()
     {

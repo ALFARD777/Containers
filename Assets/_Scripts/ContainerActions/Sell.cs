@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -377,7 +378,7 @@ public class Sell : MonoBehaviour
     {
         try
         {
-            if (Parking.playerCarsList.Count >= 15 || !Parking.visited)
+            if (Parking.playerCarsStrings.Count >= 15 || !Parking.visited)
             {
                 NoPlaceMenu.SetActive(true);
                 return;
@@ -388,7 +389,8 @@ public class Sell : MonoBehaviour
             NoPlaceMenu.SetActive(true);
             return;
         }
-        Parking.playerCarsList.Add(RandomSpawn.droppedCar);
+        Parking.playerCarsStrings.Add(RandomSpawn.droppedCar.name.Replace("(Clone)", ""));
+        Debug.Log(RandomSpawn.droppedCar.name.Replace("(Clone)", ""));
         CloseDoors();
     }
     private void CloseDoors()

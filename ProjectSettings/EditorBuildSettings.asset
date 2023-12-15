@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/LaptopMenu.unity
     guid: 5d641be93ca049447afddc0428dd2c66
   - enabled: 1
+    path: Assets/_Scenes/ContainerPass.unity
+    guid: ab8b9dd3b2268724eae315e7c50afc21
+  - enabled: 1
     path: Assets/_Scenes/Nature.unity
     guid: 43d37651521515b41bb2e12cd46ed3f6
   - enabled: 1
