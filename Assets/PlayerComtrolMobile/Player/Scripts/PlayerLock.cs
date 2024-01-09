@@ -4,7 +4,7 @@ public class PlayerLock : MonoBehaviour
 {
     
     public Transform playerBody;
-    public static float sens = 80f;
+    public static float sens = 30f;
     float xRot;
     public bool lockCursor;
 

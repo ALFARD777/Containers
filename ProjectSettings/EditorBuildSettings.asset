@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Parking.unity
     guid: e77feb31a011ff74e86fc74694efdf21
+  - enabled: 1
+    path: Assets/_Scenes/Highway.unity
+    guid: 468a913607b94884081cb00dd145830f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 5e4d79e924cefe54a8f992b91f092ad5, type: 2}

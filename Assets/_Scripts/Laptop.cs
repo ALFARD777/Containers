@@ -11,9 +11,12 @@ public class Laptop : MonoBehaviour
     public Text clockText;
     public static List<string> openedLocations = new List<string>();
     public GameObject buyGarage;
+    public GameObject enterHighway;
+    public Text enterHighwayText;
     public void StartScene()
     {
         SceneManager.LoadScene(currentScene);
+        Time.timeScale = 1f;
     }
     private void Update()
     {
@@ -35,6 +38,20 @@ public class Laptop : MonoBehaviour
             Init.balance -= 20000000;
             buyGarage.SetActive(false);
             openedLocations.Add("Garage");
+        }
+    }
+    public void CheckAuto()
+    {
+        try
+        {
+            if (!Parking.playerCarsStrings.Contains("Lambargabar")) throw new Exception();
+            enterHighway.SetActive(true);
+            enterHighwayText.text = "Выбрано";
+        }
+        catch (Exception)
+        {
+            enterHighway.SetActive(false);
+            enterHighwayText.text = "Требуется Ламба";
         }
     }
 }

@@ -24,6 +24,7 @@ public class Parking : MonoBehaviour
             playerCarsList = new List<GameObject>();
             spawnPoints = new List<Transform>();
         }
+        playerCarsStrings.Add("Lambargabar");
         balanceText.text = Init.balance.ToString("N0", CultureInfo.InvariantCulture).Replace(",", ".") + "$";
         InvokeRepeating("AddTimeBalance", timerInterval, timerInterval);
         foreach (string carString in playerCarsStrings)

@@ -49,9 +49,9 @@ public class ContainerPass : MonoBehaviour
         quest = quest.Remove(quest.Length - 1);
         switch (quest)
         {
-            case "Играть 60 минут":
+            case "Собрать 20 наград за время":
                 bar.value = Init.playTime;
-                progress.text = Init.playTime + " / 60";
+                progress.text = Init.playTime + " / 20";
                 break;
             case "Собрать 4.000.000$":
                 bar.value = Init.balance;
@@ -64,6 +64,10 @@ public class ContainerPass : MonoBehaviour
             case "Открыть 20 контейнеров":
                 bar.value = Init.containerOpened;
                 progress.text = Init.containerOpened + " / 20";
+                break;
+            case "Открыть гараж":
+                bar.value = Parking.visited ? 1 : 0;
+                progress.text = Parking.visited ? "1" : "0" + " / 1";
                 break;
         }
         playerLevel.text = "LVL" + playerLevelNumber;
@@ -80,7 +84,6 @@ public class ContainerPass : MonoBehaviour
             lines.RemoveRange(0, Mathf.Min(3, lines.Count));
             string newText = string.Join("\n", lines);
             TextAsset newTextAsset = new TextAsset(newText);
-            //UnityEditor.AssetDatabase.CreateAsset(newTextAsset, "Assets/Resources/Quest_Modified.asset");
             File.WriteAllBytes("Assets/Resources/Quest_Modified.asset", newTextAsset.bytes);
             ResetValues();
         }
@@ -130,7 +133,7 @@ public class ContainerPass : MonoBehaviour
         switch (quest)
         {
             case "Играть 60 минут":
-                return "0 / 60";
+                return "0 / 3";
             case "Собрать 4.000.000$":
                 return "0 / 4000000";
             case "Выбить мусор из конт.":
