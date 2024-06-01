@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/Nature.unity
     guid: 43d37651521515b41bb2e12cd46ed3f6
   - enabled: 1
+    path: Assets/_Scenes/Port.unity
+    guid: 74c971aac9945a54581d24d820c92d0d
+  - enabled: 1
+    path: Assets/_Scenes/Airport.unity
+    guid: 12f2dbdcc24d7dc4ab84a485b39e017a
+  - enabled: 1
     path: Assets/_Scenes/Parking.unity
     guid: e77feb31a011ff74e86fc74694efdf21
   - enabled: 1

@@ -11,8 +11,14 @@ public class Laptop : MonoBehaviour
     public Text clockText;
     public static List<string> openedLocations = new List<string>();
     public GameObject buyGarage;
+    public GameObject buyPort;
+    public GameObject buyAirport;
     public GameObject enterHighway;
     public Text enterHighwayText;
+    private void Start()
+    {
+        Costs();
+    }
     public void StartScene()
     {
         SceneManager.LoadScene(currentScene);
@@ -26,10 +32,14 @@ public class Laptop : MonoBehaviour
     {
         currentScene = name;
     }
-    public void GarageCost()
+    public void Costs()
     {
-        if (openedLocations.Contains("Garage")) buyGarage.SetActive(true);
+        if (openedLocations.Contains("Garage")) buyGarage.SetActive(false);
         else buyGarage.SetActive(true);
+        if (openedLocations.Contains("Port")) buyPort.SetActive(false);
+        else buyPort.SetActive(true);
+        if (openedLocations.Contains("Airport")) buyAirport.SetActive(false);
+        else buyAirport.SetActive(true);
     }
     public void BuyGarage()
     {
@@ -40,18 +50,36 @@ public class Laptop : MonoBehaviour
             openedLocations.Add("Garage");
         }
     }
+    public void BuyPort()
+    {
+        if (Init.balance >= 4000000)
+        {
+            Init.balance -= 4000000;
+            buyPort.SetActive(false);
+            openedLocations.Add("Port");
+        }
+    }
+    public void BuyAirport()
+    {
+        if (Init.balance >= 8000000)
+        {
+            Init.balance -= 8000000;
+            buyAirport.SetActive(false);
+            openedLocations.Add("Airport");
+        }
+    }
     public void CheckAuto()
     {
         try
         {
             if (!Parking.playerCarsStrings.Contains("Lambargabar")) throw new Exception();
             enterHighway.SetActive(true);
-            enterHighwayText.text = "Выбрано";
+            enterHighwayText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         }
         catch (Exception)
         {
             enterHighway.SetActive(false);
-            enterHighwayText.text = "Требуется Ламба";
+            enterHighwayText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ";
         }
     }
 }

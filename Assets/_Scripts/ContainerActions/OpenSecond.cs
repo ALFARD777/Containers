@@ -11,6 +11,7 @@ public class OpenSecond : MonoBehaviour
     public RunOpen RunOpen;
     public void OpenSecondButtonClick()
     {
+        Debug.Log("SecondButtonClicked");
         switch (Init.secondContainerNumber)
         {
             case 0:
